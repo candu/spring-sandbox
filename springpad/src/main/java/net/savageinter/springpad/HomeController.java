@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,14 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	@RequestMapping(value = "/documents", method = RequestMethod.GET)
+	public String allDocuments(Model model) {
+		// TODO: implement this
+		/*
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -32,12 +31,33 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate);
-		
-		return "home";
+		*/
+		return "documents";
+	}
+	
+	@RequestMapping(value = "/documents", method = RequestMethod.POST)
+	public String createDocument() {
+		// TODO: implement this
+		return "redirect:/documents";
+	}
+	
+	@RequestMapping(value = "/documents/{id}", method = RequestMethod.GET)
+	public String readDocument(@PathVariable int id, Model model) {
+		return "document";
+	}
+	
+	@RequestMapping(value = "/documents/{id}", method = RequestMethod.PUT)
+	public String updateDocument(@PathVariable int id) {
+		return "redirect:/documents/" + id;
+	}
+	
+	@RequestMapping(value = "/documents/{id}", method = RequestMethod.DELETE)
+	public String deleteDocument (@PathVariable int id) {
+		return "redirect:/documents";
 	}
 	
 	@RequestMapping(value = "/bad", method = RequestMethod.GET)
-	public String bad(Locale local, Model model) {
+	public String bad(Model model) {
 		// cause NPE
 		Integer x = null;
 		x.byteValue();
