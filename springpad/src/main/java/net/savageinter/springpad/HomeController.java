@@ -31,9 +31,17 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("serverTime", formattedDate);
 		
 		return "home";
+	}
+	
+	@RequestMapping(value = "/bad", method = RequestMethod.GET)
+	public String bad(Locale local, Model model) {
+		// cause NPE
+		Integer x = null;
+		x.byteValue();
+		return null;
 	}
 	
 }
