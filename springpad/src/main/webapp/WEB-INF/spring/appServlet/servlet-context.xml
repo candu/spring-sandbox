@@ -21,6 +21,20 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- Factory bean that creates the Mongo instance -->
+    <beans:bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
+        <beans:property name="host" value="localhost" />
+    </beans:bean>
+    
+    <!-- MongoTemplate for connecting and quering the documents in the database -->
+    <beans:bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <beans:constructor-arg name="mongo" ref="mongo" />
+        <beans:constructor-arg name="databaseName" value="test" />
+    </beans:bean>
+    
+    <!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes -->
+    <beans:bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	
 	<context:component-scan base-package="net.savageinter.springpad" />
 	
 	
