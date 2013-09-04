@@ -46,12 +46,31 @@
 			<version>1.2.1.RELEASE</version>
 		</dependency>
 		
+		<!-- JSON -->
+		<dependency><!-- jackson -->
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+		
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>	
+		</dependency>
+		
+		<dependency>
+	       <groupId>org.aspectj</groupId>
+	       <artifactId>aspectjtools</artifactId>
+	       <version>${org.aspectj-version}</version>
+	    </dependency>
+	
+	    <dependency>
+	        <groupId>cglib</groupId>
+	        <artifactId>cglib</artifactId>
+	        <version>2.2</version>
+	    </dependency>
 		
 		<!-- Logging -->
 		<dependency>
@@ -128,7 +147,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>    
 	</dependencies>
     <build>
         <plugins>

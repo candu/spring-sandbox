@@ -16,6 +16,11 @@ public class Note {
 	private String data;
 	private List<String> tags = new ArrayList<String>();
 	
+	public Note() {
+		this.title = "";
+		this.data = "";
+	}
+	
 	public Note(String title, String data) {
 		this.title = title;
 		this.data = data;
@@ -23,6 +28,9 @@ public class Note {
 	
 	public ObjectId getId() {
 		return id;
+	}
+	public void setId(ObjectId id) {
+		this.id = id;
 	}
 	
 	public String getTitle() {
