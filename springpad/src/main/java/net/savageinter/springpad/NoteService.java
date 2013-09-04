@@ -37,10 +37,10 @@ public class NoteService {
 	}
 	
 	public void deleteNote(Note note) {
-		mongo.remove(note);
+		mongo.remove(note, COLLECTION_NAME);
 	}
 	
 	public void updateNote(Note note) {
-		mongo.insert(note);
+		mongo.save(note, COLLECTION_NAME);
 	}
 }

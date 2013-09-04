@@ -1,5 +1,5 @@
-(function() {
-	$('.destroy').live('click', function(e) {
+$(document).ready(function onDOMReady() {
+	$('.destroy').click(function onDestroyClick(e) {
 		e.preventDefault();
 		if (confirm('Are you sure you want to delete that item?')) {
 			var element = $(this),
